@@ -10,7 +10,7 @@ export class AppComponent {
 
   msg:string = "";
   page:string = "";
-  isOpen:boolean = false;
+  isOverlayOpen:boolean = false;
   access:boolean = false;
 
   taskFormControl = new FormControl('', );
@@ -21,21 +21,18 @@ export class AppComponent {
 
   onSubmit(form:NgForm) {
     console.log(form)
-
-    console.log("Form user > " +form.value.user)
-
-    if (form.value.user == "admin" && form.value.user == "admin") {
-      console.log("access > " +this.access)
-      this.access = true
+    if (form.value.user == "admin" && form.value.password == "admin") {
+      console.log("access > " +this.access);
+      this.access = true;
+      this.isOverlayOpen = false;
     } else {
       console.log("access else > " +this.access)
-      // this.msg = "Incorrect user name and password"
-      this.msg = "I failed, for some reason I cannot get this form to save user and password properly in the background"
+      this.msg = "Incorrect user name and password"
     }
   }
 
   togglePage(selection:string) {
-
+    this.page = selection
   }
 
 

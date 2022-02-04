@@ -10,7 +10,7 @@
         <th colspan="4">Please select:</th>
       </tr>
       <tr class="content" *ngFor="let i of inv">
-        <td><img src="../../assets/images/{{ i.name }}.jpg" alt=""></td>
+        <td><img src="/assets/images/{{ i.name }}.jpg" alt=""></td>
         <td>
           <div><b>Item: {{ i.name }}</b></div>
           <div style="font-size: smaller">{{ i.description }}</div>
@@ -62,7 +62,8 @@
         </td>
         <td>
           <button mat-raised-button color="warn"
-            (click)="removeCartItem(i); sumOfCart()">Remove</button>
+            (click)="removeCartItem(i); sumOfCart()"><mat-icon>delete</mat-icon>
+          </button>
         </td>
       </tr>
       <tr>
@@ -73,6 +74,5 @@
       </tr>
     </table>
   </div>
-
 
 </div>

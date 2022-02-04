@@ -53,7 +53,6 @@ export class CartComponent implements OnInit {
     } else {
       this.cart[i].qty = (<HTMLInputElement>event.target).valueAsNumber
     }
-
   }
 
   removeCartItem(i:number) {
