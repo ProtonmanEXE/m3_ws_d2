@@ -1,0 +1,78 @@
+<div
+  fxFlexFill
+  fxLayout="row"
+  fxLayoutAlign="space-around start">
+
+  <div class="indivd">
+
+    <table>
+      <tr>
+        <th colspan="4">Please select:</th>
+      </tr>
+      <tr class="content" *ngFor="let i of inv">
+        <td><img src="../../assets/images/{{ i.name }}.jpg" alt=""></td>
+        <td>
+          <div><b>Item: {{ i.name }}</b></div>
+          <div style="font-size: smaller">{{ i.description }}</div>
+        </td>
+        <td>
+          <div>Price/kg:</div>
+          <div>{{ i.price | currency }}</div>
+        </td>
+        <td style="padding-left: 10px">
+          <button mat-raised-button color="primary"
+            (click)="addCartItem(i); sumOfCart()">Add</button>
+        </td>
+      </tr>
+    </table>
+
+  </div>
+
+  <div class="indivd">
+
+    <div *ngIf="cart.length === 0" style="font-size: xx-large">
+      <b>Your cart is empty</b>
+    </div>
+
+    <table *ngIf="cart.length > 0">
+      <tr>
+        <th colspan="2" style="font-size: xx-large;">
+          Your cart:
+        </th>
+      </tr>
+      <tr class="content" *ngFor="let item of cart; let i = index">
+        <td><img src="../../assets/images/{{ item.name }}.jpg" alt=""></td>
+        <td>
+          <div style="min-width: 125px"><b>Item: {{ item.name }}</b></div>
+        </td>
+        <td>
+          <div><mat-label>Quantity:</mat-label></div>
+          <div class="pad">
+            <input matInput
+              type="number"
+              min="1"
+              (input)="changeCartQty($event, i); sumOfCart()"
+              [ngModel]="item.qty"
+              [style.width.px]=50>
+          </div>
+        </td>
+        <td style="min-width: 80px">
+          <div class="pad">Price:</div>
+          <div class="pad">{{ item.price*item.qty | currency }}</div>
+        </td>
+        <td>
+          <button mat-raised-button color="warn"
+            (click)="removeCartItem(i); sumOfCart()">Remove</button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="5" class="tablebottom">
+          <span class="pad">Total price:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+          <span class="pad"><b>{{ totalPrice | currency }}</b></span>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+
+</div>

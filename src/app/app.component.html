@@ -1,0 +1,41 @@
+<!-- this is the navigation bar section -->
+<mat-toolbar color="primary">
+  <span>Ian's Fruit Cart</span>
+  <div class="spacer" *ngIf="!access"></div>
+    <a mat-button
+    (click)="isOpen = !isOpen"
+    cdkOverlayOrigin
+    #trigger="cdkOverlayOrigin">
+    Login<mat-icon>arrow_drop_down</mat-icon></a>
+    <ng-template
+      cdkConnectedOverlay
+      [cdkConnectedOverlayOrigin]="trigger"
+      [cdkConnectedOverlayOpen]="isOpen"
+      (overlayOutsideClick)="isOpen = false">
+      <form class="login example-overlay" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <p>
+          <mat-label>User:&nbsp;</mat-label>
+            <input name="user">
+        </p>
+
+        <p>
+          <mat-label>Password:&nbsp;</mat-label>
+          <input [style.width.px]=136.5 name="password">
+        </p>
+
+        <p class="wrong"><i>{{ msg }}</i></p>
+
+        <div class="centre"><button type="submit">Login</button></div>
+      </form>
+    </ng-template>
+    <!-- please that note that Reactive form and mat-form-field does not interact well
+    with overlay; Reactive form and mat-form-field will cause overlay to be buggy -->
+
+  <div class="spacer" *ngIf="access">
+    <a mat-button (click)="togglePage('cart')">Shopping Cart</a>
+    <a mat-button (click)="togglePage('add')">Add Item</a>
+  </div>
+</mat-toolbar>
+
+<!-- this is the shopping cart section -->
+<app-cart></app-cart>

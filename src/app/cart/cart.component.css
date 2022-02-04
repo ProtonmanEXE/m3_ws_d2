@@ -1,0 +1,40 @@
+table {
+  border: solid 2px black;
+  border-radius: 10px;
+}
+
+th {
+  font-size: xx-large;
+  padding-bottom: 15px;
+}
+
+td {
+  max-width: 250px;
+  padding-bottom: 10px;
+}
+
+img {
+  max-width: 50px;
+  padding-right: 10px;
+}
+
+mat-label {
+  font-size: smaller;
+  padding-left: 10px;
+}
+
+.indivd {
+  padding-top: 20px;
+}
+
+.pad {
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.tablebottom {
+  text-align: center;
+  border-top: solid 2px black;
+  border-collapse: collapse;
+}
+
