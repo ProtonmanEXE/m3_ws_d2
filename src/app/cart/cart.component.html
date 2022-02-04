@@ -10,7 +10,7 @@
         <th colspan="4">Please select:</th>
       </tr>
       <tr class="content" *ngFor="let i of inv">
-        <td><img src="/assets/images/{{ i.name }}.jpg" alt=""></td>
+        <td><img src="assets\images\{{ i.name }}.jpg" alt=""></td>
         <td>
           <div><b>Item: {{ i.name }}</b></div>
           <div style="font-size: smaller">{{ i.description }}</div>
@@ -41,7 +41,7 @@
         </th>
       </tr>
       <tr class="content" *ngFor="let item of cart; let i = index">
-        <td><img src="../../assets/images/{{ item.name }}.jpg" alt=""></td>
+        <td><img src="assets\images\{{ item.name }}.jpg" alt=""></td>
         <td>
           <div style="min-width: 125px"><b>Item: {{ item.name }}</b></div>
         </td>
